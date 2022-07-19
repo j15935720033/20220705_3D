@@ -23,6 +23,7 @@ namespace chia
         private Vector3 direction;
         private Transform transMainCamera;
         private string parRun = "Blend_浮點數";
+        private string parJump = "觸發跳躍";
         #endregion
 
         #region 事件
@@ -91,6 +92,7 @@ namespace chia
             if (characterController.isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
                 direction.y = jump;
+                ani.SetTrigger(parJump);
             }
             //地心引力 -9.81
             direction.y += Physics.gravity.y * Time.deltaTime;
