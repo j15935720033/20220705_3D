@@ -18,3 +18,7 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: 61fa27b2c9f68475d948a8e984723357, type: 3}
   - content: "\u6709\u4EC0\u9EBC\u80FD\u70BA\u4F60\u670D\u52D9\u7684\u55CE"
     sound: {fileID: 8300000, guid: df990db31c202452c93595fcc82c744b, type: 3}
+  - content: "\u73FE\u5728\u662F\u767D\u5929\uFF0C\u4F60\u600E\u9EBC\u6703\u51FA\u73FE"
+    sound: {fileID: 8300000, guid: df990db31c202452c93595fcc82c744b, type: 3}
+  - content: "\u8981\u4E0D\u8981\u4E00\u8D77\u904B\u52D5"
+    sound: {fileID: 8300000, guid: df990db31c202452c93595fcc82c744b, type: 3}
