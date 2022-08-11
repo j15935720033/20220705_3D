@@ -27,7 +27,7 @@ namespace chia
         {
             aniTip = GameObject.Find("Image_提示底圖").GetComponent<Animator>();
             thirdPersonController = FindObjectOfType<ThirdPersonController>();//FindObjectOfType:搜尋元件，僅限只有一個GameObjet有這個元件
-            //t = FindObjectsOfType<test>();
+            //t = FindObjectsOfType<test>();//找一個Script放在很多GameObject上，傳回陣列
             dialogueSystem = FindObjectOfType<DialogueSystem>();//找Script
             ani = GetComponent<Animator>();
         }
@@ -89,7 +89,7 @@ namespace chia
                     print("<Color=#993311>缺少元件錯誤，NPC沒有 Animation</color>");
                     //throw
                 }
-                StartCoroutine(dialogueSystem.StartDialogue(dataNpc, ResetControllerAndCloseCamera));//StartDialogue方法是IEnumerator 所以要用StartCoroutine 啟動偕同程序
+                StartCoroutine(dialogueSystem.StartDialogue(dataNpc, ResetControllerAndCloseCamera));//StartDialogue方法是IEnumerator 所以要用StartCoroutine 啟動偕同程序。參數是delegate所以要傳方法
             }
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace chia
         /// </summary>
         private void ResetControllerAndCloseCamera()
         {
-            goCamera.SetActive(false);
+            goCamera.SetActive(false);//關閉攝影機GameObject
             thirdPersonController.enabled = true;
             aniTip.SetTrigger(parTipFad);
             

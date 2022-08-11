@@ -58,7 +58,6 @@ namespace chia
             textName.text = dataNpc.nameNPC;//
             textContent.text = "";//清空對話欄
             yield return StartCoroutine(Fade());//淡入效果    yield return跑完這行才會跑下一行
-
             for (int i = 0; i < dataNpc.dataDialogue.Length; i++)
             {
                 yield return StartCoroutine(TypeEffect(i));//淡入文字
@@ -89,7 +88,9 @@ namespace chia
             for (int i = 0; i < 10; i++)
             {
                 groupDialogue.alpha += increase;
+                 print(i);
                 yield return new WaitForSeconds(intervalFadIn);
+               
             }
             //StartCoroutine(TypeEffect());//淡入文字
         }
