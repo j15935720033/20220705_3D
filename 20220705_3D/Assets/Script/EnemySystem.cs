@@ -18,7 +18,7 @@ namespace chia
         private StateEnemy stateEnemy;//AI狀態
 
         private string parWalk = "開關走路";
-        private string parAttack = "開關攻擊";
+        private string parAttack = "觸發攻擊";
         private float timerIdle;//等待時間(時間計時器)
         private float timeAttack;//蓄力時間(時間計時器)
 
