@@ -13,6 +13,8 @@ namespace chia
     [RequireComponent(typeof(AudioSource))]
     public class DialogueSystem : MonoBehaviour
     {
+        #region 資料
+
         //委派簽名，無傳回與無參數
         public delegate void DelegateFinishDialogue();
 
@@ -34,8 +36,10 @@ namespace chia
         private float intervalFadIn = 0.1f;
         [SerializeField, Header("打字間隔")]
         private float intervalType = 0.05f;
+        #endregion
 
-        
+
+
 
         #region Unity方法
         private void Awake()
@@ -47,10 +51,11 @@ namespace chia
         }
         #endregion
 
+        #region 自訂方法
         #region 公開資料與方法
         public bool isDialogue;//是否在對話中
 
-        public IEnumerator StartDialogue(DataNPC _dataNPC,DelegateFinishDialogue callback)
+        public IEnumerator StartDialogue(DataNPC _dataNPC, DelegateFinishDialogue callback)
         {
             isDialogue = true;//設定對話中
 
@@ -76,21 +81,22 @@ namespace chia
         }
         #endregion
 
+
         /// <summary>
         /// 淡入效果
         /// </summary>
-        private IEnumerator Fade(bool fadeIn=true)//給預設值
+        private IEnumerator Fade(bool fadeIn = true)//給預設值
         {
             //三元運算子
             //布林直?布林值為 true:布林值為 false
-            float increase=fadeIn?0.1f:-0.1f;
+            float increase = fadeIn ? 0.1f : -0.1f;
 
             for (int i = 0; i < 10; i++)
             {
                 groupDialogue.alpha += increase;
-                 print(i);
+                print(i);
                 yield return new WaitForSeconds(intervalFadIn);
-               
+
             }
             //StartCoroutine(TypeEffect());//淡入文字
         }
@@ -102,13 +108,15 @@ namespace chia
             textContent.text = "";//清空對話欄
             aud.PlayOneShot(dataNpc.dataDialogue[indexDialogue].sound);//播放對話音效
             string content = dataNpc.dataDialogue[indexDialogue].content;
-            for (int i=0;i<content.Length;i++)//打字淡入效果
+            for (int i = 0; i < content.Length; i++)//打字淡入效果
             {
                 textContent.text += content[i];
                 yield return new WaitForSeconds(intervalType);
             }
             goTriangle.SetActive(true);//顯示三角形
         }
+        #endregion
+
 
 
 
