@@ -20,8 +20,8 @@ namespace chia
         private string parWalk = "開關走路";
         private string parAttack = "觸發攻擊";
         private float timerIdle;//等待時間(時間計時器)
-        private float timeAttack;//蓄力時間(時間計時器)
-
+        private float timerAttack;//蓄力時間(時間計時器)
+        private EnemyAttack enemyAttack;
         #endregion
 
 
@@ -29,6 +29,7 @@ namespace chia
         private void Awake()
         {
             ani = GetComponent<Animator>();
+            enemyAttack = GetComponent<EnemyAttack>();
             nma = GetComponent<NavMeshAgent>();
             nma.speed = dataEnemy.speedWalk;//設定AI速度
         }
@@ -132,30 +133,44 @@ namespace chia
         /// </summary>
         private void Track()
         {
+            //GetCurrentAnimatorStateInfo(0-->動畫預設圖層是0，
+            if (ani.GetCurrentAnimatorStateInfo(0).IsName("Attack01"))//攻擊時取消加速度
+            {
+                nma.velocity = Vector3.zero;
+            }
             nma.SetDestination(v3TargetPosition);//朝向偵測到的玩家移動
             ani.SetBool(parWalk, true);
+            ani.ResetTrigger(parAttack);
             //print(nma.remainingDistance);
             if (Vector3.Distance(transform.position,v3TargetPosition) <= dataEnemy.rangeAttack)//怪物跟玩家距離:Vector3.Distance(transform.position,v3TargetPosition)
             {
                 stateEnemy = StateEnemy.Attack;
                 print("進入攻擊狀態");
             }
+            else
+            {
+                timerAttack = dataEnemy.intervalAttack;
+            }
 
         }
-
+        /// <summary>
+        /// 攻擊
+        /// </summary>
         private void Attack()
         {
             ani.SetBool(parWalk, false);//關閉走路動畫
             nma.velocity = Vector3.zero;//停止移動
 
-            if (timeAttack < dataEnemy.intervalAttack)//蓄力2秒
+            if (timerAttack < dataEnemy.intervalAttack)//蓄力2秒
             {
-                timeAttack += Time.deltaTime;
+                timerAttack += Time.deltaTime;
             }
             else
             {
                 ani.SetTrigger(parAttack);
-                timeAttack = 0;//蓄力計時器歸0
+                timerAttack = 0;//蓄力計時器歸0
+                enemyAttack.StartAttack();
+                stateEnemy = StateEnemy.Track;//追蹤
             }
         }
         /// <summary>
@@ -163,14 +178,19 @@ namespace chia
         /// </summary>
         private void CheckerTargetInTrackRange()
         {
-            if (stateEnemy == StateEnemy.Attack) return;//如果在攻擊狀態就不要檢查目標是否在追蹤範圍
+            
 
             Collider[] hits = Physics.OverlapSphere(transform.position, dataEnemy.rangeTrack, dataEnemy.layerMask);
             if (hits.Length > 0)
             {
-                print("碰到的物件" + hits[0].name);
+                //print("碰到的物件" + hits[0].name);
                 v3TargetPosition = hits[0].transform.position;//偵測到的位置
+                if (stateEnemy == StateEnemy.Attack) return;//如果在攻擊狀態就不要檢查目標是否在追蹤範圍
                 stateEnemy = StateEnemy.Track;
+            }
+            else//離開範圍變遊走狀態
+            {
+                stateEnemy = StateEnemy.Wander;
             }
         }
         #endregion

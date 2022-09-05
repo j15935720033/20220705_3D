@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace chia
 {
-    [CreateAssetMenu(menuName = "Chia/Data Enemy", fileName ="Data Enemy",order =1)]
+    [CreateAssetMenu(menuName = "Chia/Data Enemy", fileName ="DataEnemy",order =1)]
     public class DataEnemy : ScriptableObject
     {
         [Header("¦å¶q"), Range(0, 2000)]

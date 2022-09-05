@@ -22,7 +22,6 @@ namespace chia
         private DialogueSystem dialogueSystem;
         private Animator ani;
         private string parDialogue = "對話開關";
-        private test[] t;
         private void Awake()
         {
             aniTip = GameObject.Find("Image_提示底圖").GetComponent<Animator>();

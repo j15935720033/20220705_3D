@@ -10,7 +10,7 @@ namespace chia
     /// NPC 資料:名稱、對話內容與音效
     /// ScriptableObject:腳本化物件(將程式內容儲存為物件放在Project內
     /// </summary>
-    [CreateAssetMenu(menuName ="Chia/Data NPC",fileName ="Data NPC")]
+    [CreateAssetMenu(menuName ="Chia/Data NPC",fileName ="DataNPC")]
     public class DataNPC : ScriptableObject
     {
         [Header("DataNPC 名稱")]
