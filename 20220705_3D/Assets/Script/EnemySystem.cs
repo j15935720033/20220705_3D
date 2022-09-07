@@ -60,6 +60,12 @@ namespace chia
             Gizmos.color = new Color(1, 0.2f, 0.2f, 0.3f);
             Gizmos.DrawSphere(v3TargetPosition, 0.3f);//遊走範圍
         }
+
+        private void OnDisable()
+        {
+            //nma.Stop() ;//已過時，改成用nma.isStopped 
+            nma.isStopped = true;
+        }
         #endregion
 
         #region 自訂方法
@@ -134,7 +140,7 @@ namespace chia
         private void Track()
         {
             //GetCurrentAnimatorStateInfo(0-->動畫預設圖層是0，
-            if (ani.GetCurrentAnimatorStateInfo(0).IsName("Attack01"))//攻擊時取消加速度
+            if (ani.GetCurrentAnimatorStateInfo(0).IsName("Golem_Attack01"))//攻擊時取消加速度
             {
                 nma.velocity = Vector3.zero;
             }

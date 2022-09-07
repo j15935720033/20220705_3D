@@ -29,7 +29,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: left_attack
+  m_Name: "\u9AA8\u982D\u5148\u751F_left_attack"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -220,31 +220,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: "\u958B\u95DC\u6B7B\u4EA1"
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: "Blend_\u6D6E\u9EDE\u6578"
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: "\u89F8\u767C\u8DF3\u8E8D"
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: "\u89F8\u767C\u653B\u64CA"
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -410,10 +410,10 @@ AnimatorStateMachine:
     m_Position: {x: 700, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2601123045805341636}
-    m_Position: {x: -500, y: 210, z: 0}
+    m_Position: {x: -580, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 443532999505702327}
-    m_Position: {x: -340, y: 120, z: 0}
+    m_Position: {x: -320, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4866846535699594365}
     m_Position: {x: 80, y: -320, z: 0}
@@ -422,7 +422,7 @@ AnimatorStateMachine:
     m_Position: {x: 350, y: -350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6032519954901964404}
-    m_Position: {x: 88.33124, y: 46.45758, z: 0}
+    m_Position: {x: 130, y: 20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 2103908505409897688}

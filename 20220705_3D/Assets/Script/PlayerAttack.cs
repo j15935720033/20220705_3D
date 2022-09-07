@@ -10,12 +10,12 @@ namespace chia
     /// </summary>
     public class PlayerAttack : AttackSystem
     {
-        private Animator ani;
         private string parAttack = "Ä²µo§ðÀ»";
         private ThirdPersonController tpc;
-        private void Awake()
+
+        protected override void Awake()
         {
-            ani = GetComponent<Animator>();
+            base.Awake();
             tpc = GetComponent<ThirdPersonController>();
         }
 
