@@ -31,7 +31,7 @@ namespace chia
         private GameObject goTriangle;
 
         private AudioSource aud;
-        public DataNPC dataNpc;
+        private DataNPC dataNpc;
         [SerializeField, Header("淡入時間")]
         private float intervalFadIn = 0.1f;
         [SerializeField, Header("打字間隔")]

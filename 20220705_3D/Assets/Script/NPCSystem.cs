@@ -9,7 +9,6 @@ namespace chia
     public class NPCSystem : MonoBehaviour
     {
        
-
         [SerializeField, Header("NPC 對話系統")]
         private DataNPC dataNpc;
         [SerializeField, Header("NPC 攝影機")]
@@ -27,7 +26,7 @@ namespace chia
             aniTip = GameObject.Find("Image_提示底圖").GetComponent<Animator>();
             thirdPersonController = FindObjectOfType<ThirdPersonController>();//FindObjectOfType:搜尋元件，僅限只有一個GameObjet有這個元件
             //t = FindObjectsOfType<test>();//找一個Script放在很多GameObject上，傳回陣列
-            dialogueSystem = FindObjectOfType<DialogueSystem>();//找Script
+            dialogueSystem = FindObjectOfType<DialogueSystem>();//找Script，等於要找有初始化的DialogueSystem
             ani = GetComponent<Animator>();
         }
         private void Update()
@@ -36,7 +35,7 @@ namespace chia
         }
 
         //碰撞事件
-        //1.兩個物件至少有一個 Rigidbody
+        //1.此腳本所在的GameObject要有rigidbody
         //2.有勾選 Trigger 使用OnTrigger 事件:[Enter、Exit、stay]
         private void OnTriggerEnter(Collider other)
         {
@@ -59,7 +58,7 @@ namespace chia
             if (nameHit=="骨頭先生")
             {
                 this.isInTrigger = isInTrigger;
-                aniTip.SetTrigger(parTipFad);
+                aniTip.SetTrigger(parTipFad);////開啟提示對話
             }
         }
         /// <summary>
@@ -77,7 +76,7 @@ namespace chia
                     return;
                 }
                 goCamera.SetActive(true);
-                aniTip.SetTrigger(parTipFad);
+                aniTip.SetTrigger(parTipFad);//要關閉對話題示
                 thirdPersonController.enabled = false;//關閉此元件。禁止移動
                 try
                 {
@@ -88,7 +87,8 @@ namespace chia
                     print("<Color=#993311>缺少元件錯誤，NPC沒有 Animation</color>");
                     //throw
                 }
-                StartCoroutine(dialogueSystem.StartDialogue(dataNpc, ResetControllerAndCloseCamera));//StartDialogue方法是IEnumerator 所以要用StartCoroutine 啟動偕同程序。參數是delegate所以要傳方法
+                //StartDialogue方法是IEnumerator 所以要用StartCoroutine 啟動偕同程序。參數是delegate所以要傳方法
+                StartCoroutine(dialogueSystem.StartDialogue(dataNpc, ResetControllerAndCloseCamera));
             }
         }
         /// <summary>
