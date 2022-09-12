@@ -144,6 +144,9 @@
         },
         {
             "m_Id": "d6b2388c7413465aa3d64c4ac4759e7a"
+        },
+        {
+            "m_Id": "5c0dbf0225ae474ba2c1f615ea663272"
         }
     ],
     "m_Edges": [
@@ -1014,10 +1017,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 769.9999389648438,
-            "y": 1498.0,
-            "width": 208.00006103515626,
-            "height": 302.0001220703125
+            "x": 794.0,
+            "y": 1551.0,
+            "width": 208.0,
+            "height": 302.0
         }
     },
     "m_Slots": [
@@ -1447,7 +1450,7 @@
     "m_Value": 2.0,
     "m_FloatType": 1,
     "m_RangeValues": {
-        "x": -2.0,
+        "x": -3.0,
         "y": 2.0
     }
 }
@@ -1597,6 +1600,26 @@
     },
     "m_Property": {
         "m_Id": "c0b6e01994314b36b8a7ac75c2819132"
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "5c0dbf0225ae474ba2c1f615ea663272",
+    "m_Title": "溶解效果",
+    "m_Content": "in:輸入值\nedge:判斷範圍\n\nin >= edge 傳回1(白色)\n否則傳回0(黑色)\n\n\n",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 762.0,
+        "y": 2079.0,
+        "width": 200.0,
+        "height": 184.0
+    },
+    "m_Group": {
+        "m_Id": ""
     }
 }
 
@@ -2808,7 +2831,7 @@
         }
     ],
     "synonyms": [],
-    "m_Precision": 0,
+    "m_Precision": 1,
     "m_PreviewExpanded": true,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -3080,14 +3103,14 @@
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
-    "m_Precision": 0,
+    "m_Precision": 1,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 4.654208660125732,
-        "g": 0.7917948961257935,
-        "b": 0.6759224534034729,
+        "r": 2.6082377433776857,
+        "g": 0.45063793659210207,
+        "b": 0.38235944509506228,
         "a": 0.0
     },
     "isMainColor": false,
@@ -3126,14 +3149,14 @@
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
     "m_ObjectId": "d6b2388c7413465aa3d64c4ac4759e7a",
-    "m_Title": "New Note",
+    "m_Title": "溶解變不見",
     "m_Content": "in:輸入值\nedge:判斷範圍\n\nin >= edge 傳回1(白色)\n否則傳回0(黑色)\n\n\n",
     "m_TextSize": 0,
     "m_Theme": 0,
     "m_Position": {
         "serializedVersion": "2",
-        "x": 1266.0,
-        "y": 1871.0,
+        "x": 793.0,
+        "y": 1411.0,
         "width": 200.0,
         "height": 160.0
     },
@@ -3296,7 +3319,7 @@
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
     "m_ObjectId": "e3454640bd6c41a3954577baa4b9390f",
-    "m_Title": "New Note",
+    "m_Title": "溶解顆粒大小_Simple Noise",
     "m_Content": "黑色 :0\n白色:1\n灰色:0~1\n",
     "m_TextSize": 0,
     "m_Theme": 0,

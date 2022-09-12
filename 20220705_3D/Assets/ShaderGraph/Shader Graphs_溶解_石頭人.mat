@@ -70,7 +70,7 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 10
-    - _EnableBlendModePreserveSpecularLighting: 1
+    - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
     - _OpaqueCullMode: 2
     - _RayTracing: 0
@@ -106,12 +106,12 @@ Material:
     - _ZWrite: 1
     - __1: 0
     - __4: 50
-    - __6: 0.3
+    - __6: 0.216
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - __5: {r: -3, g: 1.5, b: 0, a: 0}
-    - __7: {r: 772.8302, g: 76.55393, b: 127.35617, a: 0}
+    - __7: {r: 785404, g: 78129.195, b: 131586.02, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5103535768774551492
 MonoBehaviour:
