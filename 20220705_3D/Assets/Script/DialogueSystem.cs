@@ -36,10 +36,8 @@ namespace chia
         private float intervalFadIn = 0.1f;
         [SerializeField, Header("打字間隔")]
         private float intervalType = 0.05f;
+
         #endregion
-
-
-
 
         #region Unity方法
         private void Awake()
