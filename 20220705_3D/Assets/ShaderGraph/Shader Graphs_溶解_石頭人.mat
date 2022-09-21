@@ -110,7 +110,7 @@ Material:
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - __5: {r: -3, g: 1.5, b: 0, a: 0}
+    - __5: {r: -2.5, g: 1.5, b: 0, a: 0}
     - __7: {r: 785404, g: 78129.195, b: 131586.02, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5103535768774551492
