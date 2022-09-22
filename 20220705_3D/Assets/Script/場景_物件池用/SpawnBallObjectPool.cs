@@ -23,6 +23,7 @@ public class SpawnBallObjectPool : MonoBehaviour
             );
         InvokeRepeating("spawn", 0, 0.1f);
     }
+
     /// <summary>
     /// 建立物件池要處理的行為
     /// </summary>
