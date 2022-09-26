@@ -21,6 +21,7 @@ public class SpawnBallObjectPool : MonoBehaviour
         poolBall = new ObjectPool<GameObject>(
             CreatePool, GetBall, ReleaseBall, DestroyBall, false, 100
             );
+
         InvokeRepeating("spawn", 0, 0.1f);
     }
 
