@@ -13,6 +13,32 @@ namespace chia
         private float minDissolve = -3f;
 
         private ObjectPoolRock objectPoolRock;//石頭碎片物件池
+        public delegate void delegateDead();
+        /// <summary>
+        /// 死亡事件
+        /// </summary>
+        public delegateDead onDead;
+
+        /// <summary>
+        /// 遊戲物件被隱藏時執行一次
+        /// </summary>
+        private void OnDisable()
+        {
+            
+        }
+
+        /// <summary>
+        /// 遊戲物件被顯示時執行一次
+        /// 熟投人數遽還原成初始值
+        /// </summary>
+        private void OnEnable()
+        {
+            hp = dataHealth.hp;
+            imageHealth.fillAmount = 1;
+            enemySystem.enabled = true;
+            matDissolve.SetFloat(nameDissolve,2.5f);
+            maxDissolve = 2.5f;
+        }
         protected override void Awake()
         {
             base.Awake();
@@ -23,7 +49,10 @@ namespace chia
             //GetComponentsInChildren 取得子物件們的元件，回陣列
             matDissolve = GetComponentsInChildren<Renderer>()[0].material;
 
-            objectPoolRock = FindObjectOfType<ObjectPoolRock>();
+            //objectPoolRock = FindObjectOfType<ObjectPoolRock>();
+            objectPoolRock = GameObject.Find("物件池碎片").GetComponent<ObjectPoolRock>();
+            
+            //onDead();寫到溶解效果
         }
         /// <summary>
         /// 死亡
@@ -35,6 +64,10 @@ namespace chia
             DropProp();
             StartCoroutine(Dissolve());
         }
+        /// <summary>
+        /// 溶解效果
+        /// </summary>
+        /// <returns></returns>
         private IEnumerator Dissolve()
         {
             while(maxDissolve> minDissolve)
@@ -43,6 +76,7 @@ namespace chia
                 matDissolve.SetFloat(nameDissolve, maxDissolve);
                 yield return new WaitForSeconds(0.03f);
             }
+            onDead();
         }
         /// <summary>
         /// 掉落道具

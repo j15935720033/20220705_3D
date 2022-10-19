@@ -10,7 +10,7 @@ namespace chia
     {
        
         [SerializeField, Header("NPC 對話系統")]
-        private DataNPC dataNpc;
+        public DataNPC dataNpc;
         [SerializeField, Header("NPC 攝影機")]
         private GameObject goCamera;
 

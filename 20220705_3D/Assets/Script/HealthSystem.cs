@@ -12,7 +12,7 @@ namespace chia
         [SerializeField, Header("血量資料")]
         protected DataHealth dataHealth;
         [SerializeField, Header("image_血條")]
-        private Image imageHealth;
+        protected Image imageHealth;
         protected float hp;
         private Animator ani;
         private string parHurt = "觸發受傷";
