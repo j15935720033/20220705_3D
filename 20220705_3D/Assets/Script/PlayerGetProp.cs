@@ -13,7 +13,7 @@ namespace chia
         private string propRock = "¥ÛÀY¸H¤ù";
 
         private int countRock = 0;
-        private int countRockMax = 1;
+        private int countRockMax = 3;
         private TextMeshProUGUI textCount;
 
         private NPCSystem npcSystem;
