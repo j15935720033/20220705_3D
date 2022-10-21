@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_EDITOR//是否在unity編輯器裡
 using UnityEditor;//引用編輯器命名空間
+#endif
+
 namespace chia
 {
     
@@ -22,6 +26,7 @@ namespace chia
         [HideInInspector,Header("寶物掉落率"), Range(0f, 1f)]
         public float propProbability;
     }
+#if UNITY_EDITOR
     //自訂編輯器(類別(要自訂編輯器的類別)
     [CustomEditor(typeof(DataHealth))]
     public class DataHealthEditor : Editor
@@ -59,5 +64,5 @@ namespace chia
         }
 
     }
-
+#endif
 }

@@ -16,7 +16,7 @@ namespace chia
         [SerializeField, Header("旋轉速度"), Range(0, 50)]
         private float turn = 5f;
         [SerializeField, Header("跳躍速度"), Range(0, 50)]
-        private float jump = 7f;
+        private float jump = 3f;
 
         private Animator ani;
         private CharacterController characterController;

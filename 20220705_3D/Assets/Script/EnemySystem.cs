@@ -22,6 +22,7 @@ namespace chia
         private float timerIdle;//等待時間(時間計時器)
         private float timerAttack;//蓄力時間(時間計時器)
         private EnemyAttack enemyAttack;
+        private PlayerHealth playerHealth;
         #endregion
 
 
@@ -32,6 +33,8 @@ namespace chia
             enemyAttack = GetComponent<EnemyAttack>();
             nma = GetComponent<NavMeshAgent>();
             nma.speed = dataEnemy.speedWalk;//設定AI速度
+            timerAttack = dataEnemy.intervalAttack;//攻擊間隔
+            playerHealth = FindObjectOfType<PlayerHealth>();
         }
 
         private void Update()
@@ -148,14 +151,15 @@ namespace chia
             ani.SetBool(parWalk, true);
             ani.ResetTrigger(parAttack);
             //print(nma.remainingDistance);
-            if (Vector3.Distance(transform.position,v3TargetPosition) <= dataEnemy.rangeAttack)//怪物跟玩家距離:Vector3.Distance(transform.position,v3TargetPosition)
+            //怪物玩家距離在攻擊範圍內 && 玩家血量大於0 :進入攻擊
+            if (Vector3.Distance(transform.position,v3TargetPosition) <= dataEnemy.rangeAttack && playerHealth.hp>0 )//怪物跟玩家距離:Vector3.Distance(transform.position,v3TargetPosition)
             {
                 stateEnemy = StateEnemy.Attack;
                 print("進入攻擊狀態");
             }
             else
             {
-                timerAttack = dataEnemy.intervalAttack;
+                stateEnemy = StateEnemy.Wander;
             }
 
         }
@@ -164,6 +168,7 @@ namespace chia
         /// </summary>
         private void Attack()
         {
+            
             ani.SetBool(parWalk, false);//關閉走路動畫
             nma.velocity = Vector3.zero;//停止移動
 
@@ -187,12 +192,22 @@ namespace chia
             
 
             Collider[] hits = Physics.OverlapSphere(transform.position, dataEnemy.rangeTrack, dataEnemy.layerMask);
-            if (hits.Length > 0)
+           
+            if (hits.Length > 0 )//有碰到玩家  
             {
-                //print("碰到的物件" + hits[0].name);
-                v3TargetPosition = hits[0].transform.position;//偵測到的位置
-                if (stateEnemy == StateEnemy.Attack) return;//如果在攻擊狀態就不要檢查目標是否在追蹤範圍
-                stateEnemy = StateEnemy.Track;
+                float hp_Player = hits[0].gameObject.GetComponent<PlayerHealth>().hp;
+                if (hp_Player > 0)//玩家血量>0才追蹤
+                {
+                    //print("碰到的物件" + hits[0].name);
+                    v3TargetPosition = hits[0].transform.position;//偵測到的位置
+                    if (stateEnemy == StateEnemy.Attack) return;//如果在攻擊狀態就不要檢查目標是否在追蹤範圍
+                    stateEnemy = StateEnemy.Track;
+                }
+                else//離開範圍變遊走狀態
+                {
+                    stateEnemy = StateEnemy.Wander;
+                }
+
             }
             else//離開範圍變遊走狀態
             {

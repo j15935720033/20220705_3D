@@ -78,6 +78,7 @@ namespace chia
         /// </summary>
         private void CheckAttackArea()
         {
+            //15_攻擊系統調整：避免在非攻擊動畫時造成傷害
             //如果不是攻擊動畫，就跳出
             if (!ani.GetCurrentAnimatorStateInfo(0).IsName(nameAnimation)) return;
 
@@ -88,7 +89,7 @@ namespace chia
                 dataAttack.layerTarget);
 
             //有碰到東西
-            if (hits.Length > 0)
+            if (hits.Length > 0 )
             {
                 print(hits[0].name);
                 hits[0].GetComponent<HealthSystem>().Hurt(dataAttack.attack);//傳攻擊力，到血量系統的Hrut

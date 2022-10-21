@@ -13,7 +13,7 @@ namespace chia
         protected DataHealth dataHealth;
         [SerializeField, Header("image_血條")]
         protected Image imageHealth;
-        protected float hp;
+        public float hp;
         private Animator ani;
         private string parHurt = "觸發受傷";
         private string parDead = "開關死亡";

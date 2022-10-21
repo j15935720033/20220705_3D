@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameNPC: "\u5C0F\u7F8E"
   dataDialogue:
-  - content: 3Q
+  - content: "\u5B8C\u6210\u4EFB\u52D9"
     sound: {fileID: 8300000, guid: dabb91186bc1f4ff3ae7107a41e50bb7, type: 3}
